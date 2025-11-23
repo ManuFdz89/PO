@@ -1,15 +1,17 @@
 package Operaciones;
 
-import javax.swing.plaf.PanelUI;
+import javax.swing.plaf.PanelUI; // (Esta librería no se usa, podrías borrarla)
 import java.util.Scanner;
 
 public class SwitchFor {
 
     Scanner teclado = new Scanner(System.in);
 
+    // --- EJERCICIO 1: Días de la Semana ---
+    // Uso del SWITCH como EXPRESIÓN (con '->'). Es más limpio y no necesita 'break'.
     public void ejercicio1(){
 
-        teclado = new Scanner(System.in);
+        teclado = new Scanner(System.in); // Reinicias el scanner (correcto, aunque no estrictamente necesario si ya es global)
 
         System.out.println("Introduce un número (1-7): ");
         int dia = teclado.nextInt();
@@ -30,6 +32,10 @@ public class SwitchFor {
         System.out.printf("el dia %d es: %s%n", dia, nombreDia);
 
     }
+
+    // --- EJERCICIO 2: Calificaciones (String) ---
+    // El switch funciona con cadenas de texto.
+    // Usamos .toLowerCase() para que funcione igual con "A" que con "a".
     public void ejercicio2(){
 
         System.out.println("Introduce tu calificacion (A-F): ");
@@ -44,10 +50,14 @@ public class SwitchFor {
             case "f" -> calificacion = "Insuficiente";
             default -> calificacion = "Nota no válida";
         }
+        // Usamos .toUpperCase() en el print para mostrarlo en mayúscula aunque el usuario lo pusiera en minúscula.
         System.out.printf("Calificacion %s: %s%n", nota.toUpperCase(), calificacion);
 
-
     }
+
+    // --- EJERCICIO 3: Calculadora ---
+    // Aquí el switch RETORNA un valor ('int') directamente a la variable 'resultado'.
+    // Esto es muy útil para asignar valores limpiamente.
     public void ejercicio3(){
         System.out.print("Introduce el primer numero: ");
         int numUno = teclado.nextInt();
@@ -60,11 +70,14 @@ public class SwitchFor {
             case "+" -> numUno+numDos;
             case "-" -> numUno-numDos;
             case "*" -> numUno*numDos;
-            case "/" -> numUno/numDos;
-            default -> 0;
+            case "/" -> numUno/numDos; // Nota: Al ser enteros, se pierden los decimales.
+            default -> 0; // Obligatorio devolver algo por defecto.
         };
         System.out.printf("Resultado: %d %s %d = %d", numUno, operaciones, numDos, resultado);
     }
+
+    // --- EJERCICIO 4: Menú Simple ---
+    // Otro ejemplo de switch que retorna un valor (String en este caso).
     public void ejercicio4(){
         System.out.println("----MENU----");
         System.out.println("1. Ver Perfil");
@@ -86,6 +99,11 @@ public class SwitchFor {
         System.out.printf("Has seleccionado: %s%n", resultado);
 
     }
+
+    // --- EJERCICIO 5: Estaciones (Agrupación de Casos) ---
+    // Aquí usas la sintaxis CLÁSICA (con dos puntos ':').
+    // Nota cómo agrupas varios casos (12, 1, 2) para una misma lógica.
+    // ¡IMPORTANTE! Aquí SÍ hace falta el 'break' para no saltar al siguiente caso.
     public void ejercicio5(){
         System.out.println("Introduce el numero del mes (1-12): ");
         int mes = teclado.nextInt();
@@ -109,6 +127,10 @@ public class SwitchFor {
         }
         System.out.printf("El mes %d corresponde a: %s%n", mes, estacion);
     }
+
+    // --- EJERCICIO 6: Tabla de Multiplicar (Bucle FOR) ---
+    // Estructura básica: for(inicio; condición; actualización).
+    // Ideal cuando sabemos exactamente cuántas vueltas dar (10 en este caso).
     public void ejercicio6(){
         System.out.print("Introduce un número:");
         int numero = teclado.nextInt();
@@ -119,6 +141,11 @@ public class SwitchFor {
         }
 
     }
+
+    // --- EJERCICIO 6_2: Tablas en Rango (FOR ANIDADO) ---
+    // Este ejercicio demuestra dos conceptos clave:
+    // 1. Lógica de SWAP: Ordenar menor y mayor para que el bucle funcione siempre.
+    // 2. Bucles Anidados: Un bucle dentro de otro (para cada número 'i', hacemos 10 multiplicaciones 'y').
     public void ejercicio6_2(){
         System.out.print("Introduce un número:");
         int numero = teclado.nextInt();
@@ -129,30 +156,42 @@ public class SwitchFor {
         int menor;
         int mayor;
         //System.out.printf("-------  Tabla del %d  --------%n",i);
-       if (numero>numero2) {
-           menor = numero2;
-           mayor = numero;
-       }else {
-           menor = numero;
-           mayor = numero2;
-       }
-       for (i = menor; i <= mayor; i++) {
-           // System.out.printf("          %d x %d = %d%n", numero, i, (numero * i));
-           System.out.printf("  ----  Tabla del %d  ----  %n%n", i);
-           for (y = 1; y <= 10; y++) {
-               System.out.printf("         %d x %d = %d%n", i, y, (i * y));
-           }
-           System.out.println();
 
-       }
+        // Determinamos cuál es el rango correcto
+        if (numero>numero2) {
+            menor = numero2;
+            mayor = numero;
+        }else {
+            menor = numero;
+            mayor = numero2;
+        }
+
+        // Bucle externo: Recorre los números de las tablas
+        for (i = menor; i <= mayor; i++) {
+            // System.out.printf("          %d x %d = %d%n", numero, i, (numero * i));
+            System.out.printf("  ----  Tabla del %d  ----  %n%n", i);
+
+            // Bucle interno: Hace las 10 multiplicaciones de esa tabla
+            for (y = 1; y <= 10; y++) {
+                System.out.printf("         %d x %d = %d%n", i, y, (i * y));
+            }
+            System.out.println();
+
+        }
     }
+
+    // --- EJERCICIO 7: Suma Acumulativa ---
+    // Concepto de ACUMULADOR: La variable 'resultado' guarda la suma vuelta tras vuelta.
+    // Debe inicializarse en 0 para sumas.
     public void ejercicio7(){
         System.out.print("Introduce un numero: ");
         int numero = teclado.nextInt();
         int resultado = 0;
         System.out.print("Sumando: ");
         for (int i=1; i<=numero; i++){
-            resultado += i;              //resultado = resultado+i; es lo mismo las dos opciones
+            resultado += i;              // resultado = resultado+i; es lo mismo las dos opciones
+
+            // Lógica visual para poner el '+' solo entre números
             if (i!=numero){
                 System.out.print(i + " + ");
             }else {
@@ -161,6 +200,10 @@ public class SwitchFor {
         }
         System.out.printf("La suma de números del 1 al %d es: %d%n",numero, resultado);
     }
+
+    // --- EJERCICIO 8: Pares e Impares ---
+    // Uso del operador MÓDULO (%) para saber si es par.
+    // Aquí usamos CONTADORES (suman 1) en vez de acumuladores (suman valor).
     public void ejercicio8(){
         System.out.println("Introduce un numero: ");
         int numero = teclado.nextInt();
@@ -179,6 +222,10 @@ public class SwitchFor {
         System.out.println("Numeros pares encontrados: "+contadorPar);
         System.out.println("Numeros impares encontrados: "+contadorImpar);
     }
+
+    // --- EJERCICIO 9: Factorial ---
+    // Concepto crítico: Acumulador de MULTIPLICACIÓN debe empezar en 1.
+    // Usamos 'long' porque los factoriales crecen muy rápido y 'int' se queda corto.
     public void ejercicio9(){
         System.out.print("Introduce un numero: ");
         int numero = teclado.nextInt();
@@ -186,6 +233,7 @@ public class SwitchFor {
 
         System.out.printf("Calculando %d!%n", numero);
 
+        // Bucle inverso (decremental): i--
         for (int i = numero; i > 0 ; i--) {
             resultado *= i;
 
@@ -197,6 +245,10 @@ public class SwitchFor {
         }
         System.out.printf("El factorial de %d es: %d",numero ,resultado);
     }
+
+    // --- EJERCICIO 10: Menú Gimnasio ---
+    // Combina SWITCH (para elegir nombre) y FOR (para contar repeticiones).
+    // Incluye validación simple con IF.
     public void ejercicio10(){
         System.out.println("--- EJERCICIOS ---");
         System.out.println("1. Flexiones");
@@ -213,22 +265,22 @@ public class SwitchFor {
             case 2 -> nEjercicio= "Abdominales";
             case 3 -> nEjercicio= "Sentadillas";
         }
+
+        // Validación del rango
         if (ejercicio<1 || ejercicio>3){
             System.out.println("Introduce un valor válido");
         }else {
             System.out.print("¿Cuantas repeticiones?");
             int repeticiones = teclado.nextInt();
             System.out.println("Has Elegido: " + nEjercicio);
+
+            // Bucle for para ejecutar las repeticiones
             for (int i = 1; i <= repeticiones; i++) {
                 System.out.printf("Repeticion %d completada%n", i);
             }
             System.out.printf("¡Ejercicio completado! Has hecho %d %s.%n", repeticiones, nEjercicio);
         }
     }
-
-
-
-
 
     public void scn(){
         teclado.close();
