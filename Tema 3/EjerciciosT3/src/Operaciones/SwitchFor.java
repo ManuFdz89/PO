@@ -119,7 +119,6 @@ public class SwitchFor {
         }
 
     }
-
     public void ejercicio6_2(){
         System.out.print("Introduce un número:");
         int numero = teclado.nextInt();
@@ -147,7 +146,6 @@ public class SwitchFor {
 
        }
     }
-
     public void ejercicio7(){
         System.out.print("Introduce un numero: ");
         int numero = teclado.nextInt();
@@ -163,6 +161,73 @@ public class SwitchFor {
         }
         System.out.printf("La suma de números del 1 al %d es: %d%n",numero, resultado);
     }
+    public void ejercicio8(){
+        System.out.println("Introduce un numero: ");
+        int numero = teclado.nextInt();
+        int contadorPar=0;
+        int contadorImpar=0;
+
+        System.out.printf("Recorriendo numeros del %d al %d%n", 1, numero);
+
+        for (int i = 1; i <= numero; i++) {
+            if (i%2==0){
+                contadorPar++;
+            }else {
+                contadorImpar++;
+            }
+        }
+        System.out.println("Numeros pares encontrados: "+contadorPar);
+        System.out.println("Numeros impares encontrados: "+contadorImpar);
+    }
+    public void ejercicio9(){
+        System.out.print("Introduce un numero: ");
+        int numero = teclado.nextInt();
+        long resultado = 1;
+
+        System.out.printf("Calculando %d!%n", numero);
+
+        for (int i = numero; i > 0 ; i--) {
+            resultado *= i;
+
+            if (i==1) {
+                System.out.println(i);
+            }else {
+                System.out.print(i+" x ");
+            }
+        }
+        System.out.printf("El factorial de %d es: %d",numero ,resultado);
+    }
+    public void ejercicio10(){
+        System.out.println("--- EJERCICIOS ---");
+        System.out.println("1. Flexiones");
+        System.out.println("2. Abdominales");
+        System.out.println("3. Sentadillas");
+
+        System.out.print("Elige un ejercicio (1-3):");
+        int ejercicio = teclado.nextInt();
+
+        String nEjercicio="";
+
+        switch (ejercicio){
+            case 1 -> nEjercicio= "Flexiones";
+            case 2 -> nEjercicio= "Abdominales";
+            case 3 -> nEjercicio= "Sentadillas";
+        }
+        if (ejercicio<1 || ejercicio>3){
+            System.out.println("Introduce un valor válido");
+        }else {
+            System.out.print("¿Cuantas repeticiones?");
+            int repeticiones = teclado.nextInt();
+            System.out.println("Has Elegido: " + nEjercicio);
+            for (int i = 1; i <= repeticiones; i++) {
+                System.out.printf("Repeticion %d completada%n", i);
+            }
+            System.out.printf("¡Ejercicio completado! Has hecho %d %s.%n", repeticiones, nEjercicio);
+        }
+    }
+
+
+
 
 
     public void scn(){

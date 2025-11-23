@@ -1,5 +1,7 @@
 import Operaciones.Operaciones;
 import Operaciones.SwitchFor;
+import Operaciones.WhileDoWhile;
+import Operaciones.T3Pdf;
 
 
 
@@ -8,6 +10,9 @@ public class Main {
     public static void main(String[] args) {
         Operaciones operaciones = new Operaciones();
         SwitchFor ejercicios = new SwitchFor();
+        WhileDoWhile ejercicio = new WhileDoWhile();
+        T3Pdf ej = new T3Pdf();
+
         //operaciones.ejercicio1();
         //operaciones.ejercicio2();
         //operaciones.ejercicio3();
@@ -30,12 +35,26 @@ public class Main {
         //ejercicios.ejercicio4();
         //ejercicios.ejercicio5();
         //ejercicios.ejercicio6();
-        ejercicios.ejercicio6_2();
+        //ejercicios.ejercicio6_2();
         //ejercicios.ejercicio7();
         //ejercicios.ejercicio8();
         //ejercicios.ejercicio9();
+        //ejercicios.ejercicio10();
+        //ejercicios.scn();
+        //ejercicio.ejercicio1();
+        //ejercicio.ejercicio2();
+        //ejercicio.ejercicio3();
+        //ejercicio.ejercicio4();
+        //ejercicio.ejercicio5();
+        //ejercicio.ejercicio6();
+        //ejercicio.ejercicio7();
+        //ejercicio.ejercicio8();
+        //ejercicio.ejercicio9();
+        //ejercicio.ejercicio10();
+        //ejercicio.scn();
+        //ej.ejercicio1();
+        ej.ejercicio2();
 
-        ejercicios.scn();
 
 
     }
