@@ -53,7 +53,10 @@ public class Main {
         //ejercicio.ejercicio10();
         //ejercicio.scn();
         //ej.ejercicio1();
-        ej.ejercicio2();
+        //ej.ejercicio2();
+        //ej.ejercicio3();
+        ej.ejercicio4();
+        ej.scn();
 
 
 
