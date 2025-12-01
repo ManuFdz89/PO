@@ -154,13 +154,13 @@ public class Metodos {
         for (int i = 0; i < calificaciones.length; i++) {
             System.out.printf("\nIntroduce la nota del alumno nº %d: ",(i+1));
             calificaciones[i] = teclado.nextDouble();
+            while (calificaciones[i]<0 || calificaciones[i]>10){
+                System.out.print("\nIntroduce la nota correcta: ");
+                calificaciones[i] = teclado.nextDouble();
+            }
             if (i==0){
                 mayor = calificaciones[0];
                 menor = calificaciones[0];
-            }
-            if (calificaciones[i]<0 || calificaciones[i]>10){
-                System.out.print("\nIntroduce la nota correcta: ");
-                calificaciones[i] = teclado.nextDouble();
             }
             if (mayor<calificaciones[i]){
                 mayor = calificaciones[i];
@@ -178,18 +178,19 @@ public class Metodos {
         }
         //imprimirArrayDouble(calificaciones);
         promedio = promedio/calificaciones.length;
-        System.out.println("\nLa nota media de la clase es: "+ promedio);
-        System.out.println("\nLa nota mas alta es "+mayor+" y la nota mas baja "+menor);
-        System.out.println("\nHan aprobado: "+contadorAprobado+" y han suspendido: "+contadorSupenso);
+        System.out.print("\nLa nota media de la clase es: "+ promedio);
+        System.out.print("\nLa nota mas alta es "+mayor+" y la nota mas baja "+menor);
+        System.out.print("\nHan aprobado: "+contadorAprobado+" y han suspendido: "+contadorSupenso);
 
 
     }
     public void ejercicio4(){
-        /*4. Crear una aplicación que permita realizar el sorteo del mundial. Para ello el
-             sistema pedirá los nombres de las selecciones de los dos bombos, 5 por bombo.
-             Una vez introducidos. Mostrar los emparejamientos de los equipos. Ten en cuenta
-             que un mismo equipo no puede jugar más de un partido*/
-        
+
+    /*4. Crear una aplicación que permita realizar el sorteo del mundial. Para ello el
+         sistema pedirá los nombres de las selecciones de los dos bombos, 5 por bombo.
+         Una vez introducidos. Mostrar los emparejamientos de los equipos. Ten en cuenta
+         que un mismo equipo no puede jugar más de un partido*/
+
 
 
 
