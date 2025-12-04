@@ -222,8 +222,8 @@ public class ArrMultidimensionales {
             System.out.println();
         }
         System.out.println("\n---  NOTA MAS ALTA  ---\n");
-        int estudiante = 1;
-        int asignatura = 1;
+        int estudiante = 0;
+        int asignatura = 0;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if(matriz[i][j]>notaAlta){
