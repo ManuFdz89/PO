@@ -6,9 +6,9 @@ public class Main {
 
         Metodos ej = new Metodos();
 
-        //ej.ejercicio1();
+        ej.ejercicio1();
         //ej.ejercicio2();
-        ej.ejercicio3();
+        //ej.ejercicio3();
 
     }
 

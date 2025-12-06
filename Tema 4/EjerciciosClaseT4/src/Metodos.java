@@ -58,6 +58,17 @@ public class Metodos {
             System.out.print(item+"\t");
         }
     }
+    boolean estaNumero(int aleatorio,int[][] matriz){
+
+        for (int[] fila : matriz) {
+            for (int item : fila ){
+                if (aleatorio == item){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     public void ejercicio1(){
 
@@ -78,14 +89,30 @@ public class Metodos {
         int[][] matriz1 = new int[filas][columnas];
         int[][] matriz2 = new int[filas][columnas];
         int[][] sumaMatrices = new int[filas][columnas];
+        int aleatorio;
 
         for (int i = 0; i < matriz1.length; i++) {
             for (int j = 0; j < matriz1[i].length; j++) {
-                matriz1[i][j] = (int) (Math.random()*50)+1;
-                matriz2[i][j] = (int) (Math.random()*50)+1;
+                do {
+                    aleatorio = (int) (Math.random()*10);
+                }while (estaNumero(aleatorio,matriz1));
+                matriz1[i][j] = aleatorio;
+                do {
+                    aleatorio = (int) (Math.random()*10);
+                }while (estaNumero(aleatorio,matriz2));
+                matriz2[i][j] = aleatorio;
                 sumaMatrices[i][j] = matriz1[i][j] + matriz2[i][j];
             }
         }
+      /*  for (int[] fila : matriz1){
+            for (int item : fila){
+                if (item == aleatorio){
+                    distinto = true;
+                }else {
+                    distinto = false;
+                }
+            }
+        }*/
         System.out.println("\n\t\t\t--- Matriz 1 ---\n");
         imprimirMatriz(matriz1);
         System.out.println("\n\t\t\t--- Matriz 2 ---\n");
@@ -191,6 +218,94 @@ public class Metodos {
          Una vez introducidos. Mostrar los emparejamientos de los equipos. Ten en cuenta
          que un mismo equipo no puede jugar más de un partido*/
 
+        /*public class Main {
+
+
+    public static void main(String[] args) {
+        /*
+        Crear una aplicación que permita realizar el sorteo del mundial. Para ello el
+        sistema pedirá los nombres de las selecciones de los dos bombos, 5 por bombo.
+        Una vez introducidos. Mostrar los emparejamientos de los equipos. Ten en cuenta
+        que un mismo equipo no puede jugar más de un partido
+
+
+        // Creamos las 10 selecciones
+        String[] listaSelecciones = {"España","Brasil","Argentina","Francia","Alemania","Inglaterra","Italia","Portugal","Países Bajos","Uruguay"};
+
+        String[][] matriz = new String[2][5];
+        String[][] partidos = new String[5][2];
+
+        // Creamos los dos bombos para los 5 equipos
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                int temporal = 0;
+                do{
+                    temporal = (int)(Math.random()*10);
+                }while(checkExisteString(matriz, temporal, listaSelecciones));
+                matriz[i][j] = listaSelecciones[temporal];
+            }
+        }
+
+        // Mostramos los dos bombos
+        for (int i = 0; i < matriz.length; i++) {
+            System.out.printf("Bombo %d\n", i+1);
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.printf("Equipo %d: %s\n", j+1,matriz[i][j]);
+            }
+            System.out.println("");
+        }
+
+        // Con los dos bombos, escogemos los equipos a jugar
+        for (int i = 0; i < partidos.length; i++) {
+            for (int j = 0; j < partidos[0].length; j++) {
+
+                //Equipo Bombo 1
+                String tempEquipo = "";
+                do{
+                    tempEquipo = matriz[j][(int)(Math.random()*5)] ;
+                }while(checkExisteArray(partidos, tempEquipo));
+                partidos[i][j] = tempEquipo;
+            }
+        }
+
+        // Mostramos los equipos a participar
+        for (int i = 0; i < partidos.length; i++) {
+            System.out.printf("Partido %d: \n", i+1);
+            for (int j = 0; j < partidos[0].length; j++) {
+                System.out.printf(" - %s\n",partidos[i][j]);
+            }
+            System.out.println("");
+        }
+
+    }
+
+    public static boolean checkExisteString (String[][] matrizToLook, int position, String[] equipos){
+
+        for (String[] linea : matrizToLook ) {
+            for (String value : linea) {
+                if (value != null){
+                    if (value.equals(equipos[position])){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean checkExisteArray (String[][] matrizToLook, String equipo){
+
+        for (String[] linea : matrizToLook ) {
+            for (String value : linea) {
+                if (value != null){
+                    if(value.equals(equipo)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }*/
 
 
 
